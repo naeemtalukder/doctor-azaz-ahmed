@@ -7,6 +7,7 @@ import Blogs from './Page/Blogs/Blogs';
 import Login from './Page/Login/Login';
 import Services from './Page/Home/Services/Services';
 import Notfound from './Page/Shared/NotFound/Notfound';
+import CheckOut from './Page/CheckOut/CheckOut';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/service' element={<Services></Services>}></Route>
+        <Route path='/service/:checkoutId' element={<CheckOut></CheckOut>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
