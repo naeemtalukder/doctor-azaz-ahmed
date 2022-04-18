@@ -6,8 +6,8 @@ Live Site Link: [https://majestic-lebkuchen-6ca8f3.netlify.app].
 - React-router
 - React-Bootstrap
 - React-toast
-- And other small library
- 
+- React-Router-Hoock
+
 ## Projects discription 
 
 - Home page is Navbar and Carosel. 
