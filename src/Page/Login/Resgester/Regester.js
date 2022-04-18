@@ -4,6 +4,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import './Regester.css';
 import auth from '../../../Firebase/Firebase.init';
 import Loading from '../../Shared/Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Regester = () => {
     const [
@@ -56,6 +57,7 @@ const Regester = () => {
                 <p className="mx-5">Already have an accound? <Link to='/login' className='text-decoration-none text-primary pe-auto'
                     onClick={navigateLogin}>Please Login</Link></p>
             </div>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
