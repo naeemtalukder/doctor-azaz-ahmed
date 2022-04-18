@@ -12,26 +12,21 @@ const Regester = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
+    const [updateProfile, updating] = useUpdateProfile(auth);
+    let errorElement;
     const navigate = useNavigate();
-
-
-    if (loading || updating) {
-        return <Loading></Loading>
-    }
-
-    if (user) {
-        console.log('user', user);
-    }
-
 
     const navigateLogin = event => {
         navigate('/login');
     }
-
     if (user) {
-        navigate('/');
+        console.log('user', user);
+    }
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    }
+    if (loading || updating) {
+        return <Loading></Loading>
     }
 
     const handleRegister = async (event) => {
@@ -56,6 +51,7 @@ const Regester = () => {
 
                     <input type="password" name="password" id="" placeholder='Enter Password' required />
                     <input className='btn btn-info' type="submit" value="Regester" />
+                    {errorElement}
                 </form>
                 <p className="mx-5">Already have an accound? <Link to='/login' className='text-decoration-none text-primary pe-auto'
                     onClick={navigateLogin}>Please Login</Link></p>
