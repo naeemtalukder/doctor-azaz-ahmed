@@ -1,0 +1,12 @@
+.regester-form {
+    margin-bottom: 50px;
+}
+
+.regester-form input {
+    display: block;
+    height: 50px;
+    padding-left: 10px;
+    margin: 10px;
+    width: 100%;
+    font-size: 18px;
+}
