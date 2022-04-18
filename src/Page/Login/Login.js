@@ -1,23 +1,42 @@
 import React, { useRef } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Form, Button, Toast } from 'react-bootstrap';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
+import Loading from '../Shared/Loading/Loading';
+import SocialLogin from './SocialLogin/SocialLogin';
 
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    let errorElement;
+
+
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    if (user) {
-        navigate('/');
+
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    if (loading || sending) {
+        return <Loading></Loading>
     }
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    }
+
     const handleSubmit = event => {
         event.preventDefault('');
         const email = emailRef.current.value;
@@ -27,31 +46,35 @@ const Login = () => {
     const navigateRegester = event => {
         navigate('/regester');
     }
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+        }
+    }
+
     return (
-        <div className='container w-50 mx-auto'>
+        <div className='container w-50 mb-5 mx-auto' style={{ height: '460px' }}>
             <h3 className='text-center text-info my-4'>Please login</h3>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
                     <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="info" type="submit">
+
+                <Button variant="info" className='mb-3 mt-2' type="submit">
                     Submit
                 </Button>
-                <p>New to user? <Link to='/regester' className='text-decoration-none text-primary pe-auto'
-                    onClick={navigateRegester}>Regester Now</Link></p>
             </Form>
+            {errorElement}
+
+            <p>New to user? <Link to='/regester' className='text-decoration-none text-primary pe-auto'
+                onClick={navigateRegester}>Regester Now</Link></p>
+            <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
+            <SocialLogin />
         </div >
     );
 };

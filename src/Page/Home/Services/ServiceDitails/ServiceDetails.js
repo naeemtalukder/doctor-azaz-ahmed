@@ -6,10 +6,10 @@ const ServiceDetails = () => {
 
     return (
         <div>
-            <div className='container'>
-                <h3 className='text-center text-info my-lg-4 my-sm-3'>Welcome to Checkout Page</h3>
-                <h4 className='text-center'>Service Id: {serviceId}</h4>
-                <div className="text-center">
+            <div className='container' style={{ height: '450px' }}>
+                <h3 className='text-center text-info my-lg-4 my-sm-3 pb-3'>Welcome to Checkout Page</h3>
+                <h4 className='text-center pb-5'>Service Id: {serviceId}</h4>
+                <div className="text-center pb-5">
                     <Link to="/checkout">
                         <button className='btn btn-info'>Proceed Checkout</button>
                     </Link>
