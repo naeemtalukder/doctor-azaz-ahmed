@@ -12,22 +12,22 @@ const Header = () => {
     }
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" sticky="top" bg="info" variant="light">
-                <Container>
-                    <Navbar.Brand as={Link} to="/">Dr. Azaz Ahmed</Navbar.Brand>
+            <Navbar collapseOnSelect expand="lg" sticky="top" className='color-bg' variant="light">
+                <Container >
+                    <Navbar.Brand className='text-white' as={Link} to="/">Dr. Azaz Ahmed</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                         </Nav>
                         <Nav>
-                            <Nav.Link as={Link} to="/">Home</Nav.Link>
-                            <Nav.Link as={Link} to="/service">Service</Nav.Link>
-                            <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
-                            <Nav.Link as={Link} to="/about">About</Nav.Link>
+                            <Nav.Link className='text-white' as={Link} to="/">Home</Nav.Link>
+                            <Nav.Link className='text-white' as={Link} to="/service">Service</Nav.Link>
+                            <Nav.Link className='text-white' as={Link} to="/blogs">Blogs</Nav.Link>
+                            <Nav.Link className='text-white' as={Link} to="/about">About</Nav.Link>
                             {user ?
-                                <button onClick={handleSignOut} className='btn btn-info'>Sign Out</button>
+                                <button onClick={handleSignOut} className='btn bg-white color'>Sign Out</button>
                                 :
-                                <Nav.Link as={Link} to="/login">
+                                <Nav.Link className='text-white' as={Link} to="/login">
                                     Login
                                 </Nav.Link>}
                         </Nav>

@@ -44,14 +44,14 @@ const Regester = () => {
     return (
         <div className='container w-50 mx-auto' style={{ height: '460px' }}>
             <div className='regester-form'>
-                <h3 className='text-center text-info my-4'>Please Regester</h3>
+                <h3 className='text-center color my-4'>Please Regester</h3>
                 <form onSubmit={handleRegister}>
                     <input type="text" name="name" id="" placeholder='Type Your Name' />
 
                     <input type="email" name="email" id="" placeholder='Enter Email' required />
 
                     <input type="password" name="password" id="" placeholder='Enter Password' required />
-                    <input className='btn btn-info' type="submit" value="Regester" />
+                    <input className='btn color-bg text-white' type="submit" value="Regester" />
                     {errorElement}
                 </form>
                 <p className="mx-5">Already have an accound? <Link to='/login' className='text-decoration-none text-primary pe-auto'

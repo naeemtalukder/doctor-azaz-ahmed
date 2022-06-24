@@ -16,7 +16,7 @@ const Banner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h2 className='text-info mb-3'>Hi! I am Dr. Azaz Ahmed</h2>
+                        <h2 className='color mb-3'>Hi! I am Dr. Azaz Ahmed</h2>
                         <h5 className='text-dark my-3' >I am Psychiatrists, Psychologists and Psychotherapists
                             in London, the UK & Online…</h5>
                         <p className='text-dark my-3'>We offer face to face and online counselling in London the UK and Worldwide to help
@@ -34,7 +34,7 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h2 className='text-info mb-3'>Hi! I am Dr. Azaz Ahmed</h2>
+                        <h2 className='color mb-3'>Hi! I am Dr. Azaz Ahmed</h2>
                         <h5 className='text-dark my-3' >I am Psychiatrists, Psychologists and Psychotherapists
                             in London, the UK & Online…</h5>
                         <p className='text-dark my-3'>We offer face to face and online counselling in London the UK and Worldwide to help
@@ -52,7 +52,7 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h2 className='text-info mb-3'>Hi! I am Dr. Azaz Ahmed</h2>
+                        <h2 className='color mb-3'>Hi! I am Dr. Azaz Ahmed</h2>
                         <h5 className='text-dark my-3' >I am Psychiatrists, Psychologists and Psychotherapists
                             in London, the UK & Online…</h5>
                         <p className='text-dark my-3'>We offer face to face and online counselling in London the UK and Worldwide to help

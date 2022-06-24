@@ -4,7 +4,7 @@ const About = () => {
 
     return (
         <div className='container mb-5'>
-            <h3 className='text-center text-info my-lg-5 my-sm-2'>Hello! I am Naeem Talukder</h3>
+            <h3 className='text-center color my-lg-5 my-sm-2'>Hello! I am Naeem Talukder</h3>
             <div className='row'>
                 <div className='col-lg-4 col-sm-12'>
                     <img
